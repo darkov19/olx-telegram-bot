@@ -37,7 +37,7 @@ else:
 
 
 def filter_user_data(user_data):
-    if user_data.get('dealer') or user_data.get('is_business') or user_data.get('is_phone_visible') or user_data.get('phone') or user_data.get('showroom_address'):
+    if not user_data.get('dealer') and not user_data.get('is_business') and not user_data.get('is_phone_visible') and not user_data.get('phone') and not user_data.get('showroom_address'):
         return True
     return False
 
@@ -163,7 +163,7 @@ def notify_ads():
         loop.run_until_complete(send(bot, CHAT_ID, f"Total new ads sent: {notified_ads_count} [{ads_data['previous_ads_count']} ads sent earlier!]"))
     else:
         loop.run_until_complete(send(bot, CHAT_ID, f"No new ads found! [{ads_data['previous_ads_count']} ads sent earlier!]"))
-
+        
     loop.close()
 
 

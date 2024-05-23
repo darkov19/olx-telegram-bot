@@ -3,7 +3,7 @@ name: Notify Ads Bot
 on:
     schedule:
         - cron: "*/5 * * * *"
-
+        
 jobs:
     notify_ads:
         runs-on: ubuntu-latest
@@ -34,3 +34,4 @@ jobs:
                   git add .
                   git commit -m "crongenerated"
                   git push
+
