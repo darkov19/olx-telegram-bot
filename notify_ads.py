@@ -38,8 +38,8 @@ else:
 
 def filter_user_data(user_data):
     if not user_data.get('dealer') and not user_data.get('is_business') and not user_data.get('is_phone_visible') and not user_data.get('phone') and not user_data.get('showroom_address'):
-        return True
-    return False
+        return False
+    return True
 
 
 def fetch_user_data(user_id):
