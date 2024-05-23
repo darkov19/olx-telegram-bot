@@ -117,7 +117,7 @@ This project is an OLX bot designed to scrape specific car ads from the OLX webs
 
 ## Sample Telegram Notification
 
-![Alt text](images.png)
+![Sample](image.png)
    
 ## Contributing
 
