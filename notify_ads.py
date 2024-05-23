@@ -37,7 +37,7 @@ else:
 
 
 def filter_user_data(user_data):
-    if user_data == {}:
+    if not bool(user_data):
         return True
     if user_data.get('dealer') or user_data.get('is_business') or user_data.get('is_phone_visible') or user_data.get('phone') or user_data.get('showroom_address'):
         return True
