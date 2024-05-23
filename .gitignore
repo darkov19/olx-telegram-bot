@@ -1,0 +1,5 @@
+*.js
+temp.py
+bot.py
+/env
+.env
