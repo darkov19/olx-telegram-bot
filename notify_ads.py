@@ -16,8 +16,7 @@ CHAT_ID = os.getenv("CHAT_ID")
 API_URL = os.getenv("API_URL")
 
 if not BOT_TOKEN or not CHAT_ID or not API_URL:
-    logger.error(
-        "Missing environment variables: BOT_TOKEN, CHAT_ID, or API_URL")
+    logger.error("Missing environment variables: BOT_TOKEN, CHAT_ID, or API_URL")
     exit(1)
 
 USER_API_URL = "https://www.olx.in/api/users/{user_id}"
@@ -50,12 +49,10 @@ def fetch_user_data(user_id):
         if response.status_code == 200:
             return response.json().get('data', {})
         else:
-            logger.error(f"Failed to fetch user data for user_id: {
-                         user_id}. Status code: {response.status_code}")
+            logger.error(f"Failed to fetch user data for user_id: {user_id}. Status code: {response.status_code}")
             return {}
     except requests.exceptions.RequestException as e:
-        logger.error(f"Error fetching user data for user_id: {
-                     user_id}. Exception: {str(e)}")
+        logger.error(f"Error fetching user data for user_id: {user_id}. Exception: {str(e)}")
         return {}
 
 
@@ -116,8 +113,7 @@ def fetch_ads():
 
             ads_data["total_filtered_ads"] = total_filtered_ads
         else:
-            logger.error(f"Failed to retrieve data. Status code: {
-                         response.status_code}")
+            logger.error(f"Failed to retrieve data. Status code: {response.status_code}")
 
     except requests.exceptions.RequestException as e:
         logger.error(f"Error making request: {str(e)}")
@@ -140,8 +136,7 @@ def send_notification(loop, bot, ad):
         f"Ad URL: {ad['ad_url']}\n\n"
     )
 
-    logger.info(f"Sending notification for AD ID: {
-                ad['ad_id']} ({ad['ad_url']})...")
+    logger.info(f"Sending notification for AD ID: {ad['ad_id']} ({ad['ad_url']})...")
 
     loop.run_until_complete(send(bot, CHAT_ID, message))
 
@@ -165,12 +160,10 @@ def notify_ads():
         notified_ads_count += send_notification(loop, bot, ad)
 
     if notified_ads_count > 0:
-        loop.run_until_complete(send(bot, CHAT_ID, f"Total new ads sent: {
-                                notified_ads_count} [{ads_data['previous_ads_count']} ads sent earlier!]"))
+        loop.run_until_complete(send(bot, CHAT_ID, f"Total new ads sent: {notified_ads_count} [{ads_data['previous_ads_count']} ads sent earlier!]"))
     else:
-        loop.run_until_complete(send(bot, CHAT_ID, f"No new ads found! [{
-                                ads_data['previous_ads_count']} ads sent earlier!]"))
-
+        loop.run_until_complete(send(bot, CHAT_ID, f"No new ads found! [{ads_data['previous_ads_count']} ads sent earlier!]"))
+        
     loop.close()
 
 
