@@ -115,6 +115,10 @@ This project is an OLX bot designed to scrape specific car ads from the OLX webs
 4. It stores notified ad IDs in a pickle file to avoid duplicate notifications.
 5. The bot runs every 5 minutes using APScheduler.
 
+## Sample Telegram Notification
+
+![Alt text](images.png)
+   
 ## Contributing
 
 1. Fork the repository.
