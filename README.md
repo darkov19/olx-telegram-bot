@@ -1,13 +1,13 @@
 # OLX Bot
 
-This project is an OLX bot designed to scrape specific car ads from the OLX website and send notifications via Telegram. The bot runs every 5 minutes using APScheduler.
+This project is an OLX bot designed to scrape specific car ads from the OLX website and send notifications via Telegram. The bot runs every 12 hours using APScheduler.
 
 ## Features
 
 - Scrapes specific car ads from OLX
 - Filters ads based on user data
 - Sends notifications via Telegram
-- Runs every 5 minutes
+- Runs every 12 hours
 
 ## Setup
 
@@ -73,7 +73,7 @@ This project is an OLX bot designed to scrape specific car ads from the OLX webs
 
     on:
         schedule:
-            - cron: "*/5 * * * *"
+            - cron: "0 */12 * * *"
             
     jobs:
         notify_ads:
